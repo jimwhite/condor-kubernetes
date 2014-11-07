@@ -1,0 +1,23 @@
+{
+  "id": "condorExecutorController",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 2,
+    "replicaSelector": {"name": "condorexecutor"},
+    "podTemplate": {
+      "desiredState": {
+         "manifest": {
+           "version": "v1beta1",
+           "id": "redisSlaveController",
+           "containers": [{
+             "name": "slave",
+             "image": "jimwhite/condor-kubernetes",
+             "ports": [{"containerPort": 6379, "hostPort": 6380}]
+           }]
+         }
+       },
+       "labels": {"name": "condorexecutor"}
+      }},
+  "labels": {"name": "condorexecutor"}
+}

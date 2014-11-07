@@ -1,0 +1,7 @@
+Universe   = vanilla
+Executable = /bin/echo
+Arguments  = "Hey, how YOU doin?"
+Log        = sleep.log
+Output     = sleep.out
+Error      = sleep.error
+Queue
