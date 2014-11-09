@@ -9,11 +9,11 @@
       "desiredState": {
          "manifest": {
            "version": "v1beta1",
-           "id": "redisSlaveController",
+           "id": "condorExecutorController",
            "containers": [{
              "name": "slave",
              "image": "jimwhite/condor-kubernetes",
-             "ports": [{"containerPort": 6379, "hostPort": 6380}]
+             "ports": [{"containerPort": 9886, "hostPort": 9886}]
            }]
          }
        },

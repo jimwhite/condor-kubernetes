@@ -326,6 +326,9 @@ xstop() {
 	master_pid=`condor_pid`
 	if [ "$master_pid" != "" ]; then
 		echon "using kill..."
+		# SIGQUIT means "quick" shutdown to condor_master.
+		# SIGTERM would be a graceful shutdown.  
+		# See 3.9.1 <http://research.cs.wisc.edu/htcondor/manual/v8.2/3_9DaemonCore.html>
         kill -QUIT "$master_pid"
 	else
 		init_condor_off

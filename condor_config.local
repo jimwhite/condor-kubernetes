@@ -1,18 +1,22 @@
-##  What machine is your central manager?
+## Inside Docker we don't want to rely on DNS for user authentication.
 
-CONDOR_HOST = $(FULL_HOSTNAME)
+TRUST_UID_DOMAIN = TRUE
+UID_DOMAIN = *
 
 ## Use CCB so we don't need to deal with multiple ephemeral ports
 ## which are not yet supported by Docker.
 
-# USE_SHARED_PORT = True
-# SHARED_PORT_ARGS = -p 9888
+USE_SHARED_PORT = True
+SHARED_PORT_ARGS = -p 9886
 
-## Inside Docker we don't want to rely on DNS for user authentication.
-
-TRUST_UID_DOMAIN = TRUE
+SEC_DEFAULT_NEGOTIATION = NEVER
+SEC_DEFAULT_AUTHENTICATION = NEVER
 
 ## We're not gonna try and reconfigure for each host involved.
 ## Just rely on our private network.
-ALLOW_WRITE = *
-ALLOW=*
+ALLOW_READ            = *,*@*
+ALLOW_WRITE           = *,*@*
+ALLOW_ADMINISTRATOR   = *,*@*
+ALLOW_CONFIG          = *,*@*
+ALLOW_NEGOTIATOR      = *,*@*
+ALLOW_DAEMON          = *,*@*

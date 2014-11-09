@@ -21,4 +21,7 @@ RUN yum -y install yum-utils wget which && \
 COPY userfiles /root
 COPY condor_config.local /etc/condor/condor_config.local
 
+# Expose the standard Condor port and our shared CCB port.
+EXPOSE 9618 9886
+
 CMD [ "./start-condor.sh" ]

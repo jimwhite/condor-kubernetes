@@ -2,9 +2,9 @@
   "id": "condormanager",
   "kind": "Service",
   "apiVersion": "v1beta1",
-  "port": 10000,
+  "port": 9618,
   "containerPort": 9618,
   "selector": {
-    "name": "condor-manager"
+    "name": "condormanager"
   }
 }
