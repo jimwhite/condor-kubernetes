@@ -15,12 +15,12 @@ SEC_DEFAULT_AUTHENTICATION = NEVER
 
 ## We're not gonna try and reconfigure for each host involved.
 ## Just rely on our private network.
-ALLOW_READ            = *,*@*
-ALLOW_WRITE           = *,*@*
-ALLOW_ADMINISTRATOR   = *,*@*
-ALLOW_CONFIG          = *,*@*
-ALLOW_NEGOTIATOR      = *,*@*
-ALLOW_DAEMON          = *,*@*
+ALLOW_READ            = 10.*,*@*
+ALLOW_WRITE           = 10.*,*@*
+ALLOW_ADMINISTRATOR   = 10.*,*@*
+ALLOW_CONFIG          = 10.*,*@*
+ALLOW_NEGOTIATOR      = 10.*,*@*
+ALLOW_DAEMON          = 10.*,*@*
 
 #ALLOW_READ            = 10.*
 #ALLOW_WRITE           = 10.*
@@ -41,6 +41,8 @@ COLLECTOR_MAX_FILE_DESCRIPTORS=1024
 FLOCK_FROM=10.*
 FLOCK_TO=$(COLLECTOR_HOST)
 
-#HOSTALLOW_READ=10.*
-#HOSTALLOW_WRITE=10.*
+HOSTALLOW_READ=10.*
+HOSTALLOW_WRITE=10.*
+HOSTALLOW_NEGOTIATOR = 10.*
+HOSTALLOW_ADMINISTRATOR = 10.*
 
