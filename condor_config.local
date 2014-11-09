@@ -20,3 +20,8 @@ ALLOW_ADMINISTRATOR   = *,*@*
 ALLOW_CONFIG          = *,*@*
 ALLOW_NEGOTIATOR      = *,*@*
 ALLOW_DAEMON          = *,*@*
+
+# DEFAULT_MAX_FILE_DESCRIPTORS=1024
+# The collector wants to allow at least 10240 open descriptors, 
+# but Docker doesn't permit changing limits.
+COLLECTOR_MAX_FILE_DESCRIPTORS=1024
