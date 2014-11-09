@@ -5,9 +5,10 @@ if [ -z "$CONDORMANAGER_SERVICE_HOST" ]; then
    condor_configure --prefix=/usr --type=manager,submit,execute --central-manager=$HOSTNAME
 else
    # There is a manager so we'll be an execute node for it.
+   # We allow submission because a job may need to run other jobs.
    echo Configuring as worker on $HOSTNAME for manager ${CONDORMANAGER_SERVICE_HOST}:$CONDORMANAGER_SERVICE_PORT \
       | tee info.txt
-   condor_configure --type=execute --prefix=/usr \
+   condor_configure --type=submit,execute --prefix=/usr \
       --central-manager=${CONDORMANAGER_SERVICE_HOST}:$CONDORMANAGER_SERVICE_PORT
 fi
 
