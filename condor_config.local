@@ -1,7 +1,7 @@
 ## Inside Docker we don't want to rely on DNS for user authentication.
 
 TRUST_UID_DOMAIN = TRUE
-UID_DOMAIN = my-condor-pool
+UID_DOMAIN = condor-pool
 
 ## Use CCB so we don't need to deal with multiple ephemeral ports
 ## which are not yet supported by Docker.
