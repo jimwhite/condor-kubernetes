@@ -1,7 +1,7 @@
 ## Inside Docker we don't want to rely on DNS for user authentication.
 
 TRUST_UID_DOMAIN = TRUE
-UID_DOMAIN = condor-pool
+UID_DOMAIN = condor-manager-1
 
 ## Use CCB so we don't need to deal with multiple ephemeral ports
 ## which are not yet supported by Docker.
@@ -15,19 +15,19 @@ SEC_DEFAULT_AUTHENTICATION = NEVER
 
 ## We're not gonna try and reconfigure for each host involved.
 ## Just rely on our private network.
-ALLOW_READ            = 10.*,*@*
-ALLOW_WRITE           = 10.*,*@*
-ALLOW_ADMINISTRATOR   = 10.*,*@*
-ALLOW_CONFIG          = 10.*,*@*
-ALLOW_NEGOTIATOR      = 10.*,*@*
-ALLOW_DAEMON          = 10.*,*@*
+#ALLOW_READ            = 10.*,*@*
+#ALLOW_WRITE           = 10.*,*@*
+#ALLOW_ADMINISTRATOR   = 10.*,*@*
+#ALLOW_CONFIG          = 10.*,*@*
+#ALLOW_NEGOTIATOR      = 10.*,*@*
+#ALLOW_DAEMON          = 10.*,*@*
 
-#ALLOW_READ            = 10.*
-#ALLOW_WRITE           = 10.*
-#ALLOW_ADMINISTRATOR   = 10.*
-#ALLOW_CONFIG          = 10.*
-#ALLOW_NEGOTIATOR      = 10.*
-#ALLOW_DAEMON          = 10.*
+ALLOW_READ            = 10.*
+ALLOW_WRITE           = 10.*
+ALLOW_ADMINISTRATOR   = 10.*
+ALLOW_CONFIG          = 10.*
+ALLOW_NEGOTIATOR      = 10.*
+ALLOW_DAEMON          = 10.*
 
 # This didn't seem to change the setting for the collector:
 # MAX_FILE_DESCRIPTORS=1024
