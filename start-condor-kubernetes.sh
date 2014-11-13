@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# KUBE_HOME = <location of your Kubernetes installation>
 # KUBERNETES_PROVIDER=gce # is the default (see kube-env.sh).
 # KUBE_CONFIG_FILE=config-default.sh # or config-test.sh
 
@@ -7,16 +8,16 @@
 $KUBE_HOME/cluster/kube-up.sh
 
 # Spin up the Condor manager:
-$KUBE_HOME/cluster/kubecfg.sh -c ~/Projects/dockerfiles/condor/kubernetes/condor-manager.json create pods
+$KUBE_HOME/cluster/kubecfg.sh -c condor-manager.json create pods
 
 # See that it is running by polling list pods:
 $KUBE_HOME/cluster/kubecfg.sh list pods
 
 # Spin up the Condor manager service:
-$KUBE_HOME/cluster/kubecfg.sh -c ~/Projects/dockerfiles/condor/kubernetes/condor-manager-service.json create services
+$KUBE_HOME/cluster/kubecfg.sh -c condor-manager-service.json create services
 
 # Spin up the Condor executor controller:
-$KUBE_HOME/cluster/kubecfg.sh -c ~/Projects/dockerfiles/condor/kubernetes/condor-executor-controller.json create replicationControllers
+$KUBE_HOME/cluster/kubecfg.sh -c condor-executor-controller.json create replicationControllers
 
 $KUBE_HOME/cluster/kubecfg.sh list pods
 $KUBE_HOME/cluster/kubecfg.sh list services
