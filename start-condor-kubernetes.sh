@@ -10,15 +10,13 @@ $KUBE_HOME/cluster/kube-up.sh
 # Spin up the Condor manager:
 $KUBE_HOME/cluster/kubecfg.sh -c condor-manager.json create pods
 
-# See that it is running by polling list pods:
-$KUBE_HOME/cluster/kubecfg.sh list pods
-
 # Spin up the Condor manager service:
 $KUBE_HOME/cluster/kubecfg.sh -c condor-manager-service.json create services
 
 # Spin up the Condor executor controller:
 $KUBE_HOME/cluster/kubecfg.sh -c condor-executor-controller.json create replicationControllers
 
+# See that it is running by polling list pods:
 $KUBE_HOME/cluster/kubecfg.sh list pods
 $KUBE_HOME/cluster/kubecfg.sh list services
 $KUBE_HOME/cluster/kubecfg.sh list replicationControllers
